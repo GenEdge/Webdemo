@@ -8,43 +8,57 @@
     * {
       box-sizing: border-box;
     }
+
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
       font-family: sans-serif;
-      overflow: hidden;
+      background-color: #f9f9f9;
     }
-    .iframe-container {
-      position: relative;
+
+    .iframe-wrapper {
       width: 100%;
-      height: 100vh; /* Full viewport height */
+      height: 100%;
     }
+
+    /* Default size for large screens */
+    .iframe-large {
+      height: 100vh;
+    }
+
+    /* Medium screens (tablets) */
+    @media screen and (max-width: 1024px) {
+      .iframe-large {
+        height: 90vh;
+      }
+    }
+
+    /* Small screens (phones) */
+    @media screen and (max-width: 768px) {
+      .iframe-large {
+        height: 85vh;
+      }
+    }
+
+    /* Extra small screens (very small phones) */
+    @media screen and (max-width: 480px) {
+      .iframe-large {
+        height: 80vh;
+      }
+    }
+
     iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       border: none;
-    }
-
-    @media screen and (max-width: 768px) {
-      .iframe-container {
-        height: 100vh;
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      .iframe-container {
-        height: 100vh;
-      }
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="iframe-container">
+  <div class="iframe-wrapper iframe-large">
     <iframe 
       src="https://preview--genedge-renewable-mockup-design.lovable.app/" 
       allowfullscreen 
